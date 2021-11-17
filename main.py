@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+# Save a graph given a plot and a name.
 def save_graph(plt, name):
     print(f'Image name, {name}')  # Debugging line.
     plt.savefig(f'{name}.png')
