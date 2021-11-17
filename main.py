@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def save_graph(plt, name):
+    print(f'Image name, {name}')  # Debugging line.
+    plt.savefig(f'{name}.png')
 
 
 # Press the green button in the gutter to run the script.
