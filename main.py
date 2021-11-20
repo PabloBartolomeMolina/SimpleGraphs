@@ -16,10 +16,17 @@ def get_data_Excel(file):
 
     df = pd.read_excel(f'{file}')
     print(df) # Print data for debugging purposes.
+    return df
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    get_data_Excel('Classeur1.xlsx')
+    raw_data = get_data_Excel('Classeur1.xlsx')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Print the plot of the data.
+    raw_data.plot()
+    plt.show()
+    # Get image to save it.
+    plotted = raw_data.plot().get_figure()
+    # Save plot image.
+    save_graph(plotted, 'simplegraph1')
