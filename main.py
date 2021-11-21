@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import os.path
+import reportGenerator as rg
 
 
 # Save a graph given a plot and a name.
@@ -40,3 +41,5 @@ if __name__ == '__main__':
     plotted = raw_data.plot().get_figure()
     # Save plot image.
     save_graph(plotted, 'simplegraph1')
+
+    rg.create_document()
