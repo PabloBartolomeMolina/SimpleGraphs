@@ -35,7 +35,7 @@ if __name__ == '__main__':
     ax = raw_data.plot()
     ax.set_xlabel('Index of elements')  # Add an x-label to the axes.
     ax.set_ylabel('Value of elements')  # Add a y-label to the axes.
-    plt.show()
+    #plt.show()  # Useful for debugging
     # Get image to save it.
     plotted = raw_data.plot().get_figure()
     # Save plot image.
