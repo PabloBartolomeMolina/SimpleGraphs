@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import os.path
 
@@ -25,7 +24,6 @@ def get_data_excel(file, sheet = 0):
         # Useful to debug. Specific implementation to manage this error, TO BE DONE.
         data = {'NUM0': [0, 0, 0, 0], 'NUM1': [1, 1, 1, 1]}
         df = pd.DataFrame(data)
-
     return df
 
 
