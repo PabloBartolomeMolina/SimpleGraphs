@@ -43,3 +43,7 @@ if __name__ == '__main__':
     save_graph(plotted, 'simplegraph1')
 
     rg.create_document()
+
+    # Test opening of documents : one existing document qnd one non-existing document.
+    rg.open_document("demo")
+    rg.open_document("demo1")
