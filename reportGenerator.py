@@ -6,6 +6,7 @@ data extracted from Excel file.
 
 from docx import Document
 from docx.shared import Inches
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 
 # Creation of the document.
@@ -36,11 +37,22 @@ def open_document(filename):
         hdr_cells[0].text = 'Qty'
         hdr_cells[1].text = 'Id'
         hdr_cells[2].text = 'Desc'
+        for cell in hdr_cells:
+            for paragraph in cell.paragraphs:
+                for run in paragraph.runs:
+                    run.font.bold = True
+                    run.font.size = 250000
         for qty, id1, desc in records:
             row_cells = table.add_row().cells
             row_cells[0].text = str(qty)
             row_cells[1].text = id1
             row_cells[2].text = desc
+
+        for row in table.rows:
+            for cell in row.cells:
+                for paragraph in cell.paragraphs:
+                    paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+
         p = document.add_paragraph()
         r = p.add_run()
         r.add_text('Good Morning every body,This is my graph : ')
@@ -63,7 +75,6 @@ def open_document(filename):
         run.add_picture('./simplegraph1.png', width=2500000, height=2000000)
 
         doc.save('addImage.docx')
-
     except:
         print("\nDocument not found:\n" f'{filename}.docx')
 
