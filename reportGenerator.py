@@ -78,3 +78,7 @@ def open_document(filename):
     except:
         print("\nDocument not found:\n" f'{filename}.docx')
 
+
+# Function to generate a proper report
+def true_report():
+    pass
