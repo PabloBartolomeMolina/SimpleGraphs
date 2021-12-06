@@ -32,7 +32,7 @@ def open_document(filename):
             (7, '422', 'Eggs'),
             (4, '631', 'Spam, spam, eggs, and spam')
         )
-        table = document.add_table(rows=1, cols=3)
+        table = document.add_table(rows=2, cols=3)
         hdr_cells = table.rows[0].cells
         hdr_cells[0].text = 'Qty'
         hdr_cells[1].text = 'Id'
@@ -61,15 +61,15 @@ def open_document(filename):
 
         document.save('demo.docx')
 
+        # Another document. Add a table with an image inside it.
         doc = Document()
-
         table = doc.add_table(rows=2, cols=2)
+        table.style = 'insideH'
         cell = table.cell(0, 1)
-        cell.text = 'parrot, possibly dead'
+        cell.text = 'parrot,\npossibly dead'
         row = table.rows[1]
         row.cells[0].text = 'Foo bar to you.'
         row.cells[1].text = 'And a hearty foo bar to you too sir!'
-
         paragraph = table.cell(0, 0).paragraphs[0]
         run = paragraph.add_run()
         run.add_picture('./simplegraph1.png', width=2500000, height=2000000)
