@@ -5,6 +5,7 @@ data extracted from Excel file.
 """
 
 from docx import Document
+from docx.shared import Inches
 
 
 # Creation of the document.
@@ -47,6 +48,22 @@ def open_document(filename):
         r.add_text("Demo image with demo data")
 
         document.save('demo.docx')
+
+        doc = Document()
+
+        table = doc.add_table(rows=2, cols=2)
+        cell = table.cell(0, 1)
+        cell.text = 'parrot, possibly dead'
+        row = table.rows[1]
+        row.cells[0].text = 'Foo bar to you.'
+        row.cells[1].text = 'And a hearty foo bar to you too sir!'
+
+        paragraph = table.cell(0, 0).paragraphs[0]
+        run = paragraph.add_run()
+        run.add_picture('./simplegraph1.png', width=2500000, height=2000000)
+
+        doc.save('addImage.docx')
+
     except:
         print("\nDocument not found:\n" f'{filename}.docx')
 
