@@ -42,8 +42,10 @@ if __name__ == '__main__':
     # Save plot image.
     save_graph(plotted, 'simplegraph1')
 
-    rg.create_document()
-
+    try:
+        rg.create_document()
+    except PermissionError:
+        pass # No permissions to create the file or already existing with no permissions to modify it.
     # Test opening of documents : one existing document qnd one non-existing document.
     rg.open_document("demo")
     rg.open_document("demo1")
